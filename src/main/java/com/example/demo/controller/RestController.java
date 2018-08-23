@@ -8,6 +8,7 @@
  */
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.pojo.User;
+import com.example.demo.service.UserService;
 
 /**
  * @ClassName: RestController
@@ -25,13 +27,17 @@ import com.example.demo.pojo.User;
 @Controller
 @RequestMapping("/api/v1")
 public class RestController {
+	
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping(value="/user.do", method=RequestMethod.POST)
 	public @ResponseBody User getUser() {
-		return new User(1L, "test", 12);
+		return userService.getUserById(1);
 	}
 	
 	@RequestMapping(value="/get/{id}.do", method=RequestMethod.POST)
-	public @ResponseBody User getById(@PathVariable("id") Long id) {
-		return new User(id, "test", 17);
+	public @ResponseBody User getById(@PathVariable("id") Integer id) {
+		return userService.getUserById(id);
 	}
 }

@@ -15,7 +15,7 @@ package com.example.demo.pojo;
  * @date 2018-08-21 15:09
  */
 public class User {
-	private Long id;
+	private Integer id;
 	private String name;
 	private Integer age;
 	
@@ -34,7 +34,7 @@ public class User {
 	 * @param name
 	 * @param age
 	 */
-	public User(Long id, String name, Integer age) {
+	public User(Integer id, String name, Integer age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -68,13 +68,13 @@ public class User {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/*
